@@ -1,6 +1,43 @@
 <?php
 
 class Response{
+    const JSON = "json";
+    /**
+    * 按综合方式去封装通信的方法
+    * @param integer $code 状态码
+    * @param string $message 消息提示
+    * @param array $data 数据
+    * @param string $type 数据类型
+    * return string
+    */
+    //public static function show($code, $message = '',$data = array(), $type){
+    public static function show($code, $message = '',$data = array(), $type = self::JSON){
+        if (!is_numeric($code)) {
+            return '';
+        }
+        //变量存在就是format的值，不存在就是默认json
+        $type = isset($_GET['format']) ? $_GET['format'] : self::JSON ;
+
+        $result = array(
+            'code'=>$code,
+            'message'=>$message,
+            'data'=>$data,
+        );
+
+        if ($type == 'json') {
+            self::json($code, $message, $data);
+            exit;
+        } elseif ($type == 'array') {
+            var_dump($result);
+            //调试模式
+        }elseif ($type == 'xml') {
+            self::xmlEncode($code, $message, $data);
+            exit;
+        }else{
+            //something
+        }
+
+    }
     /**
     * 按json方式去封装通信的方法
     * @param integer $code 状态码
