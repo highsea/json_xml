@@ -37,7 +37,7 @@ class Response{
     }*/
 
     /**
-    * 按json方式去封装通信的方法
+    * 按xml方式去封装通信的方法
     * @param integer $code 状态码
     * @param string $message 消息提示
     * @param array $data 数据
@@ -82,11 +82,5 @@ class Response{
 }
 /*Response::xml();*/
 
-$data = array(
-    'id'=>1,
-    'name'=>'highsea',
-    'type'=>array(4, 5, 6),
-    'position'=>array('f2e', 88, 'ued'=>array('ui', 'engineer', 22),),
-);
-Response::xmlEncode(200, 'success', $data);
+
 ?>
