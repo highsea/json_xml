@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>客户端</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://a.alipayobjects.com/u/js/201204/2S07Fhc1TN.js"></script>
+
+</head>
+<body>
+<div>JSON 实战</div>
+<ul>
+    <li>用户名：<input type="text" name="username" id="username" /></li>
+    <li>会员组：<input type="text" name="groupname" id="groupname" /></li>
+    <li>UID: <input type="text" name="uid" id="uid" /></li>
+</ul>
+
+
+<script>
+$(document).ready(function(){
+    url="server.php";
+    jQuery.ajax({
+        type:'get',
+        url:url,
+        data:{
+            inAjax:'1',
+            doNow:'checkMember'
+        },
+        dataType : 'jsonp',
+        async:false,
+        jsonp: "callback",
+        jsonpCallback:"dataList",
+        success : function (myData) {
+            console.log('ok');
+
+        },
+        error : function(){
+
+        }
+    });
+})
+</script>
+</body>
+</html>
