@@ -17,26 +17,25 @@
 
 <script>
 $(document).ready(function(){
-    url="server.php";
-    jQuery.ajax({
-        type:'get',
-        url:url,
-        data:{
+    var url="server.php",
+        data={
             inAjax:'1',
-            doNow:'checkMember'
-        },
-        dataType : 'jsonp',
-        async:false,
-        jsonp: "callback",
-        jsonpCallback:"dataList",
-        success : function (myData) {
-            console.log('ok');
+            doNow:'checkMember',
+            username:'highsea'
+        };
+    jQuery.get(url, data, function(res){
+        
+            console.log(res);
+            var jsonObj = eval("("+res+")");
+            console.log(jsonObj.username);
+            $("#username").val(jsonObj.username);
+            $("#groupname").val(jsonObj.groupname);
+            $("#uid").val(jsonObj.uid);
+        });
 
-        },
-        error : function(){
-
-        }
-    });
+/*    jQuery.ajax({
+        
+    })*/
 })
 </script>
 </body>
