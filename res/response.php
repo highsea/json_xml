@@ -28,6 +28,7 @@ class Response{
             self::json($code, $message, $data);
             exit;
         } elseif ($type == 'array') {
+            echo "<pre>";
             var_dump($result);
             //调试模式
         }elseif ($type == 'xml') {
@@ -102,6 +103,7 @@ class Response{
         $xml = $attr = "";
         foreach ($data as $key => $value) {
             if (is_numeric($key)) {
+                //xml节点不能为数字
                 $attr = " id='{$key}'";
                 //注意单引号 双引号
                 $key = "item";

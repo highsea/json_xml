@@ -5,11 +5,11 @@ $arr = array(
     'age'=>'25',
     'position'=>'f2e'
 );
-$data = 'Êý¾Ýjson';
+$data = 'è¾“å‡ºjson';
 
 //iconv(in_charset, out_charset, str)
 $newData = iconv('UTF-8', 'GBK', $data);
-echo $newData;
+//echo $newData;
 echo json_encode($newData);
 
 ?>
