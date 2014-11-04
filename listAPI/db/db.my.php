@@ -4,9 +4,9 @@ class Db {
 	static private $_instance;
 	static private $_connectSource;
 	private $_dbConfig = array(
-		'host' => '60.191.125.156',
-		'user' => 'redmine',
-		'password' => 'mining',
+		'host' => 'localhost',
+		'user' => 'root',
+		'password' => 'root',
 		'database' => 'mining_shujuke',
 	);
 
